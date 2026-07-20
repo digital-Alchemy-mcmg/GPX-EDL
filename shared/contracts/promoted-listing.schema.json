@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gpx-edl.local/contracts/promoted-listing.schema.json",
+  "title": "Promoted Listing Artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["promotion_id", "observation_id", "decision", "approved_at", "listing"],
+  "properties": {
+    "promotion_id": {"type": "string", "minLength": 1},
+    "observation_id": {"type": "string", "minLength": 1},
+    "decision": {"const": "approve"},
+    "approved_at": {"type": "string", "format": "date-time"},
+    "listing": {
+      "type": "object",
+      "required": ["employer", "job_title", "source_url"],
+      "properties": {
+        "employer": {"type": "string", "minLength": 1},
+        "job_title": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "format": "uri"}
+      },
+      "additionalProperties": true
+    }
+  }
+}
