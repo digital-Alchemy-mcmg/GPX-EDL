@@ -1,0 +1,23 @@
+version: 0.1.0
+pipeline_statuses:
+  - disk_received
+  - disk_validated
+  - disk_compiled
+  - sourcing_started
+  - observations_received
+  - zeta_ready
+  - awaiting_operator_decision
+  - listing_approved
+  - listing_rejected
+  - listing_promoted
+  - diplomat_processing
+  - artifact_ready
+  - liaison_stub_accepted
+  - failed
+operator_decisions:
+  - approve
+  - reject
+  - hold
+liaison_stub_statuses:
+  - accepted_by_stub
+  - rejected_invalid_package
