@@ -1,12 +1,16 @@
 # Liaison
 
-Liaison is stubbed during the initial milestone.
+Liaison is currently stubbed.
 
-It accepts a validated submission package and emits a deterministic receipt proving that the Envoy → Diplomat pipeline reached the submission boundary.
+It is the post-artifact branch that the user executes manually after MARA / Diplomat produces an outward-facing artifact.
 
-## Initial behavior
+## Present boundary
 
-- validate the package envelope;
-- record the package identifier and receipt time;
-- return `accepted_by_stub` or a deterministic rejection;
-- perform no external submission.
+- accept no autonomous execution authority;
+- perform no send, submission, communication, or ATS interaction;
+- preserve the artifact for user-directed execution;
+- expose no invented receipt, acceptance status, or external-action contract.
+
+## Deferred design
+
+Exact Liaison primitives remain open by design and will be derived after Envoy and Diplomat are complete. They must not be inferred from the temporary stub.
