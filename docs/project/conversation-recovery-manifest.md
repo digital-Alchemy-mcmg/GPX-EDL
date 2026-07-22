@@ -5,14 +5,16 @@ This manifest distinguishes committed project authority from conversation-derive
 ## Persisted
 
 - The constitutional specification already committed in `digital-Alchemy-mcmg/GPX-EDL`.
+- `docs/contracts/scout-disk-builder-v2-refactor-contract.md`
+- `examples/disk-builder/food-service-disk-definition.json`
+- `examples/disk-builder/compiled-machine-payload-PAY-000014.json`
+- `examples/disk-builder/disk-cartridge-CRT-000014.json`
+- `prototypes/scout-disk-builder-v2/index.html`
+- `docs/architecture/diplomat-constitution-contract-architecture-a5.md`
 
 ## Known but not persisted
 
-- `SCOUT_Disk_Builder_v2_Refactor_Contract.md`
-- `food-service-disk-definition.json`
-- `compiled-machine-payload-PAY-000014.json`
-- `disk-cartridge-CRT-000014.json`
-- Disk Builder `index.html`
+- None.
 
 ## Approved repository destinations
 
@@ -21,6 +23,7 @@ This manifest distinguishes committed project authority from conversation-derive
 - `examples/disk-builder/compiled-machine-payload-PAY-000014.json`
 - `examples/disk-builder/disk-cartridge-CRT-000014.json`
 - `prototypes/scout-disk-builder-v2/index.html`
+- `docs/architecture/diplomat-constitution-contract-architecture-a5.md`
 
 ## Unrecovered
 

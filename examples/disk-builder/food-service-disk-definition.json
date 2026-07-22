@@ -1,0 +1,166 @@
+{
+  "execution_profile": {
+    "advanced_mode": false,
+    "overrides": {},
+    "profile": "Standard"
+  },
+  "identity": {
+    "description": "Food-service employers and occupations compiled from confirmed NAICS and SOC taxonomy selections.",
+    "name": "Food Service"
+  },
+  "industry": {
+    "locked_selections": [
+      {
+        "aliases": [
+          "restaurant",
+          "casual dining",
+          "fine dining",
+          "food service"
+        ],
+        "code": "722511",
+        "source": "U.S. Census Bureau",
+        "title": "Full-Service Restaurants",
+        "version": "2022"
+      },
+      {
+        "aliases": [
+          "fast food",
+          "quick service",
+          "takeout restaurant",
+          "food service"
+        ],
+        "code": "722513",
+        "source": "U.S. Census Bureau",
+        "title": "Limited-Service Restaurants",
+        "version": "2022"
+      },
+      {
+        "aliases": [
+          "coffee shop",
+          "juice bar",
+          "snack bar",
+          "food service"
+        ],
+        "code": "722515",
+        "source": "U.S. Census Bureau",
+        "title": "Snack and Nonalcoholic Beverage Bars",
+        "version": "2022"
+      }
+    ]
+  },
+  "keywords": {
+    "exclude": [
+      "staffing",
+      "recruiter",
+      "logistics",
+      "delivery platform"
+    ],
+    "include": [
+      "restaurant",
+      "kitchen",
+      "food service",
+      "dining",
+      "crew",
+      "cook",
+      "manager"
+    ]
+  },
+  "roles": {
+    "locked_selections": [
+      {
+        "aliases": [
+          "restaurant manager",
+          "food service manager",
+          "general manager",
+          "assistant manager"
+        ],
+        "code": "11-9051",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Food Service Managers",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "shift manager",
+          "shift leader",
+          "restaurant supervisor",
+          "kitchen supervisor"
+        ],
+        "code": "35-1012",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "First-Line Supervisors of Food Preparation and Serving Workers",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "restaurant cook",
+          "line cook"
+        ],
+        "code": "35-2014",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Cooks, Restaurant",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "counter worker",
+          "crew member",
+          "cashier",
+          "fast food worker"
+        ],
+        "code": "35-3023",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Fast Food and Counter Workers",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "server",
+          "waiter",
+          "waitress"
+        ],
+        "code": "35-3031",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Waiters and Waitresses",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "dishwasher"
+        ],
+        "code": "35-9021",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Dishwashers",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "host",
+          "hostess"
+        ],
+        "code": "35-9031",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop",
+        "version": "2018"
+      },
+      {
+        "aliases": [
+          "executive chef",
+          "head chef",
+          "chef"
+        ],
+        "code": "35-1011",
+        "source": "U.S. Bureau of Labor Statistics",
+        "title": "Chefs and Head Cooks",
+        "version": "2018"
+      }
+    ]
+  },
+  "territory": {
+    "intensity": "L",
+    "radius_miles": 10,
+    "zip_codes": [
+      "48393"
+    ]
+  }
+}

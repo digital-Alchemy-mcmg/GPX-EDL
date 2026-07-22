@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SCOUT Disk Builder v2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="eyebrow">DIPLOMAT / SCOUT</div>
+      <h1>Disk Builder v2</h1>
+      <p>Definition → Cartridge compiler</p>
+    </div>
+    <nav class="nav" aria-label="Disk Builder navigation">
+      <button data-screen="gallery" class="active"><span class="num">01</span>Disk Gallery</button>
+      <button data-screen="builder"><span class="num">02</span>Disk Builder</button>
+      <button data-screen="mapper"><span class="num">03</span>Ring Mapper</button>
+      <button data-screen="taxonomy"><span class="num">04</span>Taxonomy Explorer</button>
+    </nav>
+    <div class="side-status">
+      <div class="eyebrow">Runtime</div>
+      <div class="status-row"><span>Compiler</span><span>v2.0.0</span></div>
+      <div class="status-row"><span>Taxonomy</span><span>NAICS 2022 / SOC 2018</span></div>
+      <div class="status-row"><span>Resolver</span><span class="dot" title="Resolver online"></span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><h2 id="screenTitle">Disk Gallery</h2><div class="crumb">SCOUT / Disk Compiler / <span id="screenCrumb">Gallery</span></div></div>
+      <div class="actions"><span class="badge amber">Deterministic compiler</span><span class="badge">Compiled output immutable</span></div>
+    </header>
+
+    <div class="content">
+      <section id="screen-gallery" class="screen active">
+        <div class="section-head">
+          <div><h3>Disk Gallery</h3><p>Existing Scout-family surface retained. Disk cards now represent authoring definitions, not executable JSON.</p></div>
+          <button class="btn primary" data-open-builder>New Disk Definition</button>
+        </div>
+        <div id="galleryGrid" class="grid gallery"></div>
+      </section>
+
+      <section id="screen-builder" class="screen">
+        <div class="section-head">
+          <div><h3>Disk Builder</h3><p>The operator edits only the human-readable Disk Definition. Compiler objects remain read-only.</p></div>
+          <div class="actions"><button class="btn ghost" id="resetDefinition">Reset Definition</button><button class="btn" id="loadFoodService">Load Food Service Example</button></div>
+        </div>
+        <div class="builder-tabs">
+          <button class="active" data-builder-tab="definition">Disk Definition</button>
+          <button data-builder-tab="payload">Compiled Machine Payload <span id="payloadState">— collapsed</span></button>
+        </div>
+
+        <div id="builder-definition" class="builder-tab active">
+          <div class="builder-layout">
+            <div class="stack">
+              <article class="panel">
+                <div class="panel-head"><h4>Identity</h4><small>Human-authored</small></div>
+                <div class="panel-body form-grid">
+                  <div class="field"><label for="diskName">Disk name</label><input id="diskName" placeholder="Food Service"></div>
+                  <div class="field"><label for="diskSlug">Canonical slug</label><input id="diskSlug" readonly placeholder="Generated from name"></div>
+                  <div class="field full"><label for="diskDescription">Description</label><textarea id="diskDescription" placeholder="The labor-market boundary this Disk compiles."></textarea></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Territory</h4><small>Definition input</small></div>
+                <div class="panel-body form-grid">
+                  <div class="field"><label for="territoryIntensity">Intensity</label><select id="territoryIntensity"><option value="L">Local</option><option value="R">Regional</option><option value="N">National</option></select></div>
+                  <div class="field"><label for="territoryZip">ZIP codes</label><input id="territoryZip" placeholder="48393"></div>
+                  <div class="field"><label for="territoryRadius">Radius miles</label><input id="territoryRadius" type="number" min="0" step="1" value="10"></div>
+                  <div class="field"><label>Compiled syntax</label><input id="territorySyntax" readonly value="L|48393|10"></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Industry</h4><small>Official NAICS snapshot only</small></div>
+                <div class="panel-body">
+                  <div class="field searchbox"><label for="industrySearch">Search industry language</label><input id="industrySearch" autocomplete="off" placeholder="Food Service"><div class="hint">No manual code entry. Unknown codes cannot be introduced.</div><div id="industryResults" class="results"></div></div>
+                  <div id="industryChips" class="chips"></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Roles</h4><small>Official SOC snapshot only</small></div>
+                <div class="panel-body">
+                  <div class="field searchbox"><label for="roleSearch">Search role language</label><input id="roleSearch" autocomplete="off" placeholder="Restaurant Manager"><div class="hint">The operator confirms a match; the SOC code then becomes locked.</div><div id="roleResults" class="results"></div></div>
+                  <div id="roleChips" class="chips"></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Keywords</h4><small>Human-readable filters</small></div>
+                <div class="panel-body form-grid">
+                  <div class="field"><label for="includeKeywords">Include keywords</label><textarea id="includeKeywords" placeholder="restaurant, kitchen, food service"></textarea><div class="hint">Comma or line separated.</div></div>
+                  <div class="field"><label for="excludeKeywords">Exclude keywords</label><textarea id="excludeKeywords" placeholder="staffing, recruiter, logistics"></textarea><div class="hint">Compiler warns when empty.</div></div>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Execution Profile</h4><small>Profiles expand into rules</small></div>
+                <div class="panel-body">
+                  <div id="profileGrid" class="profile-grid"></div>
+                  <div class="switch-row"><div><strong style="font-size:11px">Advanced Mode</strong><div class="hint">Override individual profile values.</div></div><label class="switch"><input id="advancedMode" type="checkbox"><span></span></label></div>
+                  <div id="advancedPanel" class="advanced form-grid">
+                    <div class="field"><label for="overrideDedupe">Deduplicate</label><select id="overrideDedupe"><option value="true">Enabled</option><option value="false">Disabled</option></select></div>
+                    <div class="field"><label for="overrideRanking">Ranking</label><select id="overrideRanking"><option>balanced</option><option>coverage</option><option>evidence</option><option>chronological</option><option>precision</option></select></div>
+                    <div class="field"><label for="overridePostFilter">Post filter</label><select id="overridePostFilter"><option>standard</option><option>permissive</option><option>strict</option><option>preserve</option></select></div>
+                    <div class="field"><label for="overrideDeepScrape">Deep scrape</label><select id="overrideDeepScrape"><option>conditional</option><option>enabled</option><option>required</option><option>disabled</option></select></div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <aside class="stack pipeline">
+              <article class="panel">
+                <div class="panel-head"><h4>Compilation Pipeline</h4><small id="compilerState">Ready</small></div>
+                <div class="panel-body">
+                  <div id="stageList"></div>
+                  <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+                  <button id="compileButton" class="btn primary compile-action">Compile Disk Cartridge</button>
+                </div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Resolved Rings</h4><small>Read-only</small></div>
+                <div id="ringPanel" class="panel-body readonly"><div class="empty">Compile to resolve NAICS + SOC into ring assignments.</div></div>
+              </article>
+
+              <article class="panel">
+                <div class="panel-head"><h4>Compilation Report</h4><small id="reportId">No build</small></div>
+                <div id="reportPanel" class="panel-body readonly"><div class="empty">A report is emitted after every successful build.</div></div>
+              </article>
+            </aside>
+          </div>
+        </div>
+
+        <div id="builder-payload" class="builder-tab" hidden>
+          <div class="payload-wrap">
+            <div class="payload-banner"><div><strong>Compiled Machine Payload</strong><small>Machine executable. Generated by compiler. Never editable.</small></div><div class="actions"><button id="copyPayload" class="btn" disabled>Copy</button><button id="downloadCartridge" class="btn primary" disabled>Download Disk Cartridge</button></div></div>
+            <div id="payloadCollapsed" class="collapsed-note">No compiled payload. Run the six-stage compiler from the Disk Definition tab.</div>
+            <textarea id="payloadOutput" class="codebox" readonly hidden></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-mapper" class="screen">
+        <div class="section-head"><div><h3>Ring Mapper</h3><p>Existing mapper retained as a registry authoring surface. Builder compilation consumes it through a swappable resolver adapter.</p></div><span class="badge amber">Resolver boundary</span></div>
+        <div id="ringMapper" class="mapper"></div>
+      </section>
+
+      <section id="screen-taxonomy" class="screen">
+        <div class="section-head"><div><h3>NAICS / SOC Explorer</h3><p>Read-only official taxonomy snapshots. The builder can select only records present here.</p></div><span class="badge">No invented codes</span></div>
+        <div class="table-wrap">
+          <div class="toolbar"><div class="taxonomy-tabs"><button class="active" data-taxonomy="naics">NAICS 2022</button><button data-taxonomy="soc">SOC 2018</button></div><input id="taxonomySearch" placeholder="Search code, title, or alias"></div>
+          <div id="taxonomyRows"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="src/registry-snapshots.js"></script>
+<script src="src/compiler-core.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>

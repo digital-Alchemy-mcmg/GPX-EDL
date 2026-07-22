@@ -1,0 +1,274 @@
+{
+  "cartridge_id": "CRT-000014",
+  "compilation_report": {
+    "checks": {
+      "execution_profile": "Standard",
+      "identity": true,
+      "keywords": true,
+      "naics_count": 3,
+      "ring_count": 5,
+      "soc_count": 8,
+      "territory": true
+    },
+    "compilation_id": "CMP-000014",
+    "errors": [],
+    "status": "success",
+    "warnings": []
+  },
+  "compiled_machine_payload": {
+    "disk_id": "DSK-000014",
+    "execution": {
+      "advanced_mode": false,
+      "policy_registry_version": "1.0.0",
+      "profile": "Standard",
+      "rules": {
+        "deduplicate": true,
+        "deep_scrape": "conditional",
+        "post_filter": "standard",
+        "ranking": "balanced"
+      }
+    },
+    "keywords": {
+      "exclude": [
+        "delivery platform",
+        "logistics",
+        "recruiter",
+        "staffing"
+      ],
+      "include": [
+        "cook",
+        "crew",
+        "dining",
+        "food service",
+        "kitchen",
+        "manager",
+        "restaurant"
+      ]
+    },
+    "payload_id": "PAY-000014",
+    "rings": [
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R4",
+        "ring_name": "Operational Management",
+        "soc_code": "11-9051"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R5",
+        "ring_name": "Specialist / Senior",
+        "soc_code": "35-1011"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R3",
+        "ring_name": "Skilled / First-Line",
+        "soc_code": "35-1012"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R3",
+        "ring_name": "Skilled / First-Line",
+        "soc_code": "35-2014"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R1",
+        "ring_name": "Entry",
+        "soc_code": "35-3023"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R2",
+        "ring_name": "Credentialed Entry",
+        "soc_code": "35-3031"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R1",
+        "ring_name": "Entry",
+        "soc_code": "35-9021"
+      },
+      {
+        "resolver": "local-ring-mapping",
+        "resolver_version": "local-mapping-1.0.0",
+        "ring_id": "R2",
+        "ring_name": "Credentialed Entry",
+        "soc_code": "35-9031"
+      }
+    ],
+    "taxonomy": {
+      "naics_codes": [
+        "722511",
+        "722513",
+        "722515"
+      ],
+      "naics_version": "2022",
+      "soc_codes": [
+        "11-9051",
+        "35-1011",
+        "35-1012",
+        "35-2014",
+        "35-3023",
+        "35-3031",
+        "35-9021",
+        "35-9031"
+      ],
+      "soc_version": "2018"
+    },
+    "territory": {
+      "intensity": "L",
+      "radius_miles": 10,
+      "zip_codes": [
+        "48393"
+      ]
+    }
+  },
+  "disk_definition": {
+    "disk_id": "DSK-000014",
+    "execution_profile": {
+      "advanced_mode": false,
+      "overrides": {},
+      "profile": "Standard"
+    },
+    "identity": {
+      "description": "Food-service employers and occupations compiled from confirmed NAICS and SOC taxonomy selections.",
+      "name": "Food Service",
+      "slug": "FOOD-SERVICE"
+    },
+    "industry": {
+      "locked_selections": [
+        {
+          "code": "722511",
+          "locked": true,
+          "source": "U.S. Census Bureau",
+          "taxonomy_version": "2022",
+          "title": "Full-Service Restaurants"
+        },
+        {
+          "code": "722513",
+          "locked": true,
+          "source": "U.S. Census Bureau",
+          "taxonomy_version": "2022",
+          "title": "Limited-Service Restaurants"
+        },
+        {
+          "code": "722515",
+          "locked": true,
+          "source": "U.S. Census Bureau",
+          "taxonomy_version": "2022",
+          "title": "Snack and Nonalcoholic Beverage Bars"
+        }
+      ]
+    },
+    "keywords": {
+      "exclude": [
+        "delivery platform",
+        "logistics",
+        "recruiter",
+        "staffing"
+      ],
+      "include": [
+        "cook",
+        "crew",
+        "dining",
+        "food service",
+        "kitchen",
+        "manager",
+        "restaurant"
+      ]
+    },
+    "roles": {
+      "locked_selections": [
+        {
+          "code": "11-9051",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Food Service Managers"
+        },
+        {
+          "code": "35-1011",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Chefs and Head Cooks"
+        },
+        {
+          "code": "35-1012",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "First-Line Supervisors of Food Preparation and Serving Workers"
+        },
+        {
+          "code": "35-2014",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Cooks, Restaurant"
+        },
+        {
+          "code": "35-3023",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Fast Food and Counter Workers"
+        },
+        {
+          "code": "35-3031",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Waiters and Waitresses"
+        },
+        {
+          "code": "35-9021",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Dishwashers"
+        },
+        {
+          "code": "35-9031",
+          "locked": true,
+          "source": "U.S. Bureau of Labor Statistics",
+          "taxonomy_version": "2018",
+          "title": "Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop"
+        }
+      ]
+    },
+    "territory": {
+      "intensity": "L",
+      "radius_miles": 10,
+      "zip_codes": [
+        "48393"
+      ]
+    }
+  },
+  "metadata": {
+    "built_at": "2026-07-18T13:21:02.404Z",
+    "compiler_version": "2.0.0",
+    "content_hash": "fe3ffb3b4deb95bd8f88a026b43035c1404ac53b22b281903f8a25f33a48c662",
+    "content_hash_algorithm": "SHA-256",
+    "immutable": true,
+    "policy_registry_version": "1.0.0",
+    "ring_resolver": {
+      "provider": "local-ring-mapping",
+      "version": "local-mapping-1.0.0"
+    },
+    "schema": "scout.disk-cartridge/2.0",
+    "taxonomy_provider": "official-snapshot-adapter",
+    "taxonomy_versions": {
+      "naics": "2022",
+      "soc": "2018"
+    }
+  }
+}
