@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gpx-edl/contracts/runner-observation.schema.json",
+  "title": "Normalized Runner Observation Batch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run", "observations"],
+  "properties": {
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "collector", "disk_id", "ring_id", "territory", "generated_at"],
+      "properties": {
+        "run_id": {"type": "string", "minLength": 1},
+        "collector": {"type": "string", "minLength": 1},
+        "disk_id": {"type": "string", "pattern": "^DSK-"},
+        "ring_id": {"type": ["string", "null"]},
+        "territory": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["zip", "radius_miles"],
+          "properties": {
+            "zip": {"type": "string", "minLength": 1},
+            "radius_miles": {"type": "number", "minimum": 0}
+          }
+        },
+        "generated_at": {"type": "string", "minLength": 1}
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["structured_fields", "job_description"],
+        "properties": {
+          "structured_fields": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["observation_id", "employer", "job_title", "location", "source", "employment_type", "compensation", "status", "url", "timestamp"],
+            "properties": {
+              "observation_id": {"type": "string", "minLength": 1},
+              "employer": {"type": ["string", "null"]},
+              "job_title": {"type": ["string", "null"]},
+              "location": {"type": ["string", "null"]},
+              "source": {"type": ["string", "null"]},
+              "employment_type": {"type": ["string", "null"]},
+              "compensation": {"type": ["string", "null"]},
+              "status": {"type": ["string", "null"]},
+              "url": {"type": ["string", "null"]},
+              "timestamp": {"type": ["string", "null"]}
+            }
+          },
+          "job_description": {"type": "string"}
+        }
+      }
+    }
+  }
+}
