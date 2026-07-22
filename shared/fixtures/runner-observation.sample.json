@@ -1,0 +1,30 @@
+{
+  "run": {
+    "run_id": "RUN-000001",
+    "collector": "envoy-1-fixture",
+    "disk_id": "DSK-000001",
+    "ring_id": "RING-FOOD-SERVICE-01",
+    "territory": {
+      "zip": "48393",
+      "radius_miles": 10
+    },
+    "generated_at": "2026-07-22T16:00:00Z"
+  },
+  "observations": [
+    {
+      "structured_fields": {
+        "observation_id": "OBS-000001",
+        "employer": "Example Restaurant",
+        "job_title": "Assistant General Manager",
+        "location": "Wixom, MI 48393",
+        "source": "Direct Employer",
+        "employment_type": "Full-time",
+        "compensation": "$50,000-$60,000",
+        "status": "active",
+        "url": "https://example.invalid/jobs/agm-1",
+        "timestamp": "2026-07-22T15:55:00Z"
+      },
+      "job_description": "This is a full-time position. Weekend availability is required. The Assistant General Manager reports to the General Manager. The role includes inventory management and cash handling. Two years of restaurant management experience are required. The employee must be able to lift up to 50 pounds. Medical, dental, and vision insurance are offered."
+    }
+  ]
+}
