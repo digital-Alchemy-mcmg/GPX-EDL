@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gpx-edl/contracts/scout-stage-mara.schema.json",
+  "title": "SCOUT-STAGE MARA Payload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run", "observations"],
+  "properties": {
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "collector", "disk_id", "ring_id", "territory", "generated_at"],
+      "properties": {
+        "run_id": {},
+        "collector": {},
+        "disk_id": {},
+        "ring_id": {},
+        "territory": {},
+        "generated_at": {}
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["structured_fields", "atomic_statements", "semantic_categories"],
+        "properties": {
+          "structured_fields": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["observation_id", "employer", "job_title", "location", "source", "employment_type", "compensation", "status", "url", "timestamp"],
+            "properties": {
+              "observation_id": {},
+              "employer": {},
+              "job_title": {},
+              "location": {},
+              "source": {},
+              "employment_type": {},
+              "compensation": {},
+              "status": {},
+              "url": {},
+              "timestamp": {}
+            }
+          },
+          "atomic_statements": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          },
+          "semantic_categories": {
+            "type": "object",
+            "additionalProperties": false,
+            "propertyNames": {
+              "enum": [
+                "employment_type",
+                "schedule",
+                "compensation",
+                "benefits",
+                "experience",
+                "education",
+                "certifications",
+                "leadership",
+                "operations",
+                "physical_requirements",
+                "working_conditions",
+                "skills",
+                "responsibilities",
+                "other"
+              ]
+            },
+            "additionalProperties": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    }
+  },
+  "$comment": "Runtime validation must additionally enforce: input observation count equals output observation count; order is preserved; run and structured_fields values are deep-equal to input; every semantic category value exactly matches an atomic_statements entry; no empty category is emitted."
+}
