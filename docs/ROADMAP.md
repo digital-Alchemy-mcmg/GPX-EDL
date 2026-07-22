@@ -1,61 +1,146 @@
-# 24–48 Hour Roadmap
+# GPX-EDL Forward Implementation Roadmap
 
-## Exit gate
+## Governing authority
 
-The milestone passes when a Disk Definition can be compiled and certified, bound to a Mission, executed through Envoy 1 and Envoy 2, enriched through Zeta, promoted by an explicit human decision, transformed into an outward-facing artifact by MARA / Diplomat, and stopped at the Liaison manual-execution boundary.
+`docs/DIPLOMAT_ENVOY_ARCHITECTURE.md` — **Canonical Freeze 2026-07-22 v2** is the single source of truth.
 
-## Phase 1 — Repository and contracts
+The architecture is complete and authoritative. Roadmap work must implement or add to the frozen design. It must not reopen, reinterpret, or replace settled component definitions.
 
-- Establish canonical component boundaries.
-- Freeze accepted identifiers and inter-component payloads.
-- Add deterministic fixtures and contract-test harnesses.
-- Do not redefine Runner internals, cartridge signature details, or the receiving-side promotion schema when those contracts are resolved elsewhere.
+## Locked pipeline
 
-## Phase 2 — Disk and Mission
+```text
+Disk Definition
+→ Compiler
+→ Certified Disk Cartridge
+→ Mission
+→ Envoy 1 (Collection Runner)
+→ Normalized Observation + evidence
+→ Envoy 2 (SCOUT-STAGE)
+→ MARA-ready Semantic Observation
+→ Zeta
+→ Human Promotion
+→ MARA / Diplomat
+→ Artifact
+→ Liaison
+```
+
+## Roadmap rules
+
+1. New work is additive only.
+2. Stage order, ownership, authority, and prohibitions are fixed.
+3. No task may introduce automatic promotion or bypass the human promotion gate.
+4. No task may merge Envoy 2 with Zeta or assign Zeta artifact-generation authority.
+5. Envoy is the formal name; SCOUT survives only in the locked name `SCOUT-STAGE` and historical references explicitly marked as legacy.
+6. Do not reintroduce ARL Zeta, Layer-0 kernels, Truth Gravity, email-as-bus, or related retired architecture.
+7. Do not redefine Runner internal contracts, Disk certification hash/signature details, or the receiving-side promotion schema where ownership is already resolved elsewhere.
+8. Unknown implementation details must remain unresolved until their owning contract is supplied. They must not be filled through architectural invention.
+
+## Milestone 1 — Contract enforcement
+
+- Make the canonical architecture document the governing repository reference.
+- Validate schemas against the locked stage boundaries.
+- Add deterministic Envoy 1 and Envoy 2 fixtures.
+- Add tests for stage order, immutable fields, observation ordering, category integrity, and the mandatory promotion gate.
+- Add a retired-concept scan for active code and documentation.
+
+### Exit gate
+
+The repository rejects payloads and flows that contradict the freeze.
+
+## Milestone 2 — Disk and Mission execution
 
 - Accept and validate a Disk Definition.
-- Compile the machine payload deterministically.
+- Resolve taxonomies, assign Rings, apply policies, and compile the machine payload deterministically.
 - Validate cartridge integrity and certify the Disk Cartridge.
 - Bind one certified cartridge to one or more Runner slots through a Mission.
 
-## Phase 3 — Envoy 1 standalone
+### Exit gate
 
-- Load only the certified machine payload.
+A certified cartridge can be bound to a Mission without exposing compiler internals as Runner discretion.
+
+## Milestone 3 — Envoy 1 operational
+
+- Load the certified machine payload as the sole execution authority.
 - Execute exact compiled filters through assigned adapters.
-- Capture evidence.
-- Emit normalized observations.
-- Perform no inference, ranking, scoring, rewriting, keyword expansion, territory broadening, or automatic discarding of valid observations.
+- Capture source evidence.
+- Emit normalized observations in the governed shape.
+- Preserve target-side failure and rejection contracts.
 
-## Phase 4 — Envoy 2 / SCOUT-STAGE standalone
+### Exit gate
 
-- Accept normalized observations from Envoy 1.
-- Preserve every structured field exactly.
-- Decompose source prose into one-fact atomic statements.
-- Index atomic statements into supported semantic categories by exact string match.
-- Emit exactly one MARA-ready semantic observation per input observation.
+The same certified cartridge and source state produce the same normalized result set, subject only to explicitly represented source-state changes.
 
-## Phase 5 — Zeta and promotion
+## Milestone 4 — Envoy 2 / SCOUT-STAGE operational
 
-- Detect duplicates.
-- Compare observations and seek differential gaps.
-- Resolve redirects through Ding-Dong Dash.
-- Classify application type.
-- Perform no scoring, ranking, recommending, inference, rewriting, ATS exploration, artifact generation, or automatic promotion.
-- Require explicit human promotion for every observation entering MARA / Diplomat.
+- Preserve every Runner-supplied structured field exactly.
+- Decompose source prose into one-fact atomic statements under the locked rules.
+- Index statements into supported semantic categories by exact string match.
+- Emit exactly one semantic observation per input observation.
+- Preserve input order.
 
-## Phase 6 — MARA / Diplomat standalone
+### Exit gate
 
-- Accept only human-promoted observations and governed candidate source material.
-- Produce candidate projection and outward-facing artifacts.
-- Preserve original evidence without modification.
-- Reject incomplete or unapproved receiving-side inputs deterministically once the receiving contract is available.
+Fixture comparison proves deterministic preservation, decomposition, and category integrity.
 
-## Phase 7 — Integrated pipeline
+## Milestone 5 — Zeta and Human Promotion operational
 
-- Run Disk Definition through certification and Mission binding.
-- Run Envoy 1 through normalized observation emission.
-- Run Envoy 2 through MARA-ready semantic observation emission.
-- Run Zeta through operator inspection and mandatory human promotion.
-- Hand promoted observations to MARA / Diplomat without rewriting preserved source facts.
-- Produce the artifact.
-- Stop at the Liaison stub and leave external execution to the user.
+- Implement duplicate detection.
+- Implement differential discovery and gap seeking.
+- Implement observation comparison.
+- Implement redirect resolution through Ding-Dong Dash.
+- Implement application-type classification.
+- Enforce all Zeta prohibitions.
+- Require an explicit human promotion action before MARA / Diplomat intake.
+
+### Exit gate
+
+No observation reaches MARA / Diplomat without a recorded human promotion action.
+
+## Milestone 6 — MARA / Diplomat operational
+
+- Accept only human-promoted observations.
+- Combine promoted observations with governed candidate source material.
+- Produce requested outward-facing artifacts.
+- Preserve original evidence unchanged and traceable.
+- Validate artifact completeness and evidence support.
+
+### Exit gate
+
+A promoted observation produces a traceable artifact without changing preserved evidence.
+
+## Milestone 7 — Locked-chain integration
+
+- Connect every stage through its governed input/output contract.
+- Preserve identifiers, field values, observation order, semantic statements, categories, and evidence across handoffs.
+- Reject missing certification, malformed observations, invalid semantic payloads, absent promotion, and invalid artifact inputs.
+- Stop at the Liaison user-executed boundary.
+
+### Exit gate
+
+A bounded end-to-end run completes:
+
+```text
+Disk Definition
+→ Certified Disk Cartridge
+→ Mission
+→ Envoy 1 output
+→ Envoy 2 output
+→ Zeta enrichment
+→ Human Promotion
+→ MARA / Diplomat artifact
+→ Liaison boundary
+```
+
+## Future milestones
+
+Future work may extend adapters, deterministic tests, Zeta enrichment capabilities within its frozen authority, MARA / Diplomat artifact types, observability, or Liaison primitives after joint design.
+
+Every future milestone must state:
+
+- which locked stage it extends;
+- which existing input/output contract it preserves;
+- what new additive capability it introduces;
+- what human approval boundary applies;
+- how regression against retired architecture is prevented.
+
+Exploratory branches on settled architecture are not roadmap work.
