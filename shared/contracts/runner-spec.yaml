@@ -1,0 +1,91 @@
+runner_spec:
+  version: "1.0"
+  description: "Executable contract for a GPX-EDL Envoy 1 collection runner"
+
+  schema:
+    certification_required: true
+    determinism_required: true
+
+  authority:
+    execution_source: compiled_machine_payload
+    definition_is_audit_only: true
+    compilation_report_is_audit_only: true
+    metadata_is_audit_only: true
+    payload_immutable: true
+
+  acceptance_rules:
+    required:
+      - certified_cartridge
+      - supported_schema
+      - compiled_machine_payload
+      - required_identifiers
+      - zero_blocking_compilation_errors
+      - valid_integrity_hash
+      - explicit_observation_limit
+      - explicit_output_contract
+      - explicit_inclusion_and_exclusion_logic
+    rejection_codes:
+      - DISK_NOT_VERIFIED
+      - UNSUPPORTED_SCHEMA
+      - MISSING_MACHINE_PAYLOAD
+      - MISSING_REQUIRED_SECTION
+      - BLOCKING_COMPILATION_ERROR
+      - AMBIGUOUS_RULE_OPERATOR
+      - INVALID_INTEGRITY_HASH
+      - UNSUPPORTED_EXECUTION_REQUIREMENT
+
+  candidate_evaluation_order:
+    - source_validation
+    - record_validation
+    - territory_validation
+    - industry_validation
+    - role_validation
+    - inclusion_evaluation
+    - exclusion_evaluation
+    - additional_rules
+    - deduplication
+    - observation_acceptance
+
+  rule_precedence:
+    - certification_and_schema
+    - mandatory_mission_and_territory
+    - mandatory_industry_and_role
+    - exclusion_rules
+    - inclusion_rules
+    - additional_policy_rules
+    - deduplication_rules
+    - observation_limit_and_stop_conditions
+
+  execution:
+    collection_run_count: 1
+    use_only_payload_criteria: true
+    no_prior_run_carryover: true
+    allow_ranking_only_when_enabled: true
+    stop_on:
+      - max_observation_limit_reached
+      - qualifying_observations_exhausted
+    never_fill_with_nonqualifying: true
+
+  output:
+    one_observation_per_row: true
+    preserve_field_order: true
+    allow_additional_fields: false
+    preserve_source_urls_exactly: true
+    narrative_allowed: false
+
+  prohibited_actions:
+    - optimize_keywords
+    - add_synonyms
+    - correct_spelling
+    - translate_terms
+    - expand_abbreviations
+    - broaden_roles
+    - broaden_industries
+    - expand_territory
+    - change_source_priorities
+    - change_deduplication_keys
+    - change_observation_limits
+    - infer_missing_criteria
+    - modify_compiled_payload
+    - summarize_results
+    - perform_analytics
