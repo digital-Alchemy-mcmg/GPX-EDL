@@ -84,8 +84,8 @@ envoy-scout/policy instructions.txt
 - It currently overlaps the Local Engineering Repository instead of providing a distinct managed clone.
 - Branch: unborn `main`.
 - HEAD: none.
-- Synchronization with GitHub: incomplete.
-- It must not be used for implementation until a successful fetch and checkout establishes the canonical GitHub commit locally.
+- Synchronization with GitHub: **Fetch Blocked** by restricted outbound access to `github.com:443`.
+- Existing local metadata is preserved. Implementation remains gated until a successful fetch and checkout establishes the canonical GitHub commit locally.
 
 ## Local engineering repository state
 
@@ -136,12 +136,12 @@ ClickUp summary: 4 aligned planning records, 4 conflicting or unsupported record
 | Layer | State | Classification |
 |---|---|---|
 | GitHub | Canonical `main` available | Canonical |
-| GPT Work project | Registered, no local commit | Missing synchronization |
-| Local engineering repository | Unborn `main`, origin configured, fetch blocked | Locally incomplete |
+| GPT Work project | Registered, no local commit; metadata preserved | Fetch Blocked |
+| Local engineering repository | Unborn `main`, origin configured; metadata preserved | Fetch Blocked |
 | Nested local snapshot | Preserved untracked copy | Pending reconciliation |
 | ClickUp | Mixed aligned and conflicting planning records | Reference only |
 
-Outbound Git transport to `github.com:443` was blocked by the execution environment. Therefore GitHub → GPT Work and GitHub → local synchronization could not be completed or verified. The three repositories do not yet reference the same commit.
+External dependency: the execution environment denies outbound Git transport to `github.com:443`. The managed and local repositories are therefore classified as **Fetch Blocked**, not missing or incomplete. GitHub → GPT Work and GitHub → local synchronization could not be completed or verified. The three repositories do not yet reference the same commit.
 
 ## Divergence and missing-artifact report
 
