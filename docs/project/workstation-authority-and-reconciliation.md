@@ -1,7 +1,7 @@
 # Workstation Authority and Reconciliation
 
 **Recorded:** 2026-07-22  
-**Status:** Reconciliation incomplete; implementation is gated  
+**Status:** GitHub inspected through an authenticated browser; browser snapshot preserved; Git transport synchronization remains pending
 **Canonical repository:** `digital-Alchemy-mcmg/GPX-EDL`
 
 ## Authority hierarchy
@@ -20,12 +20,14 @@ No lower layer supersedes a higher layer. Conflicts are resolved in favor of the
 - Repository URL: `https://github.com/digital-Alchemy-mcmg/GPX-EDL`
 - Clone URL: `https://github.com/digital-Alchemy-mcmg/GPX-EDL.git`
 - Default branch: `main`
-- Audited HEAD before this reconciliation document: `b574ab45302c17857709165ad29aaee4e56359e3`
+- Audited HEAD: `10c56eab355cd0ab2b2fa019aa2905cd3b6978ef`
 - Branches: `main` only.
 - Open issues found: 0.
 - Pull requests found: 0.
 - Visibility: public.
 - Repository is not archived.
+- Authenticated browser access: verified for repository reading, branch creation, file editing, pull requests, and repository settings.
+- Classic branch protection: not configured. Changes nevertheless use a topic branch and pull request; `main` is not changed directly by this operation.
 
 ### Audited repository tree
 
@@ -72,20 +74,23 @@ envoy-scout/policy instructions.txt
 
 ### Recent authoritative commits
 
-1. `b574ab45302c17857709165ad29aaee4e56359e3` — recover Disk Builder artifacts and Diplomat architecture.
-2. `d5b6596bf7013ddbe3620dfcdbc123e02f429999` — preserve architecture and recovery state.
-3. `69fb1c30b3433ba5a8263eead513e7417a07717e` — add the frozen Milestone One constitutional specification.
-4. `0c77ad7277be954ae908640ac5420178c38d9bf6` — lock the roadmap to canonical freeze and forward-only execution.
+1. `10c56eab355cd0ab2b2fa019aa2905cd3b6978ef` — establish workstation authority and reconciliation state.
+2. `b574ab45302c17857709165ad29aaee4e56359e3` — recover Disk Builder artifacts and Diplomat architecture.
+3. `d5b6596bf7013ddbe3620dfcdbc123e02f429999` — preserve architecture and recovery state.
+4. `69fb1c30b3433ba5a8263eead513e7417a07717e` — add the frozen Milestone One constitutional specification.
+5. `0c77ad7277be954ae908640ac5420178c38d9bf6` — lock the roadmap to canonical freeze and forward-only execution.
 
 ## GPT Work project state
 
-- A local GPT Work project is registered as `GPX-EDL-main`.
-- Registered project ID/path: `F:\dpilomat-lis-envoy\GPX-EDL-main`.
-- It currently overlaps the Local Engineering Repository instead of providing a distinct managed clone.
-- Branch: unborn `main`.
-- HEAD: none.
-- Synchronization with GitHub: **Fetch Blocked** by restricted outbound access to `github.com:443`.
-- Existing local metadata is preserved. Implementation remains gated until a successful fetch and checkout establishes the canonical GitHub commit locally.
+- Managed backup path: `C:\Users\reddi\Documents\Codex\2026-07-22\open-the-repository-digital-alchemy-mcmg\GPX-EDL`.
+- Git repository: initialized and usable for offline commits.
+- Branch: `main`.
+- Local HEAD at inspection: `ea9f6f8db9ec827a04e319039339d3f3c7137dbd` (`LOCAL — PENDING PUSH: establish GPX-EDL offline snapshot`).
+- Remote: `origin = https://github.com/digital-Alchemy-mcmg/GPX-EDL.git`.
+- Source GitHub SHA used for the local snapshot: `10c56eab355cd0ab2b2fa019aa2905cd3b6978ef`.
+- Git transport synchronization: **Fetch Blocked** by restricted outbound access to `github.com:443`.
+- Browser snapshot: `web-snapshots/2026-07-22-10c56eab/GPX-EDL-main.zip`, classified **GITHUB WEB SNAPSHOT — NOT YET GIT-SYNCHRONIZED**.
+- The GPT Work repository may continue creating local commits while transport is blocked. Such commits must be marked `LOCAL — PENDING PUSH`, reconciled without hard reset or force push, and pushed only after comparison with `origin/main`.
 
 ## Local engineering repository state
 
@@ -136,12 +141,44 @@ ClickUp summary: 4 aligned planning records, 4 conflicting or unsupported record
 | Layer | State | Classification |
 |---|---|---|
 | GitHub | Canonical `main` available | Canonical |
-| GPT Work project | Registered, no local commit; metadata preserved | Fetch Blocked |
+| GPT Work project | Usable offline `main`; local commits queued; origin configured | Fetch Blocked / Pending Git reconciliation |
 | Local engineering repository | Unborn `main`, origin configured; metadata preserved | Fetch Blocked |
 | Nested local snapshot | Preserved untracked copy | Pending reconciliation |
+| Browser ZIP snapshot | Preserved from GitHub `main` at `10c56eab...` | Web-synchronized / Not Git-synchronized |
 | ClickUp | Mixed aligned and conflicting planning records | Reference only |
 
-External dependency: the execution environment denies outbound Git transport to `github.com:443`. The managed and local repositories are therefore classified as **Fetch Blocked**, not missing or incomplete. GitHub → GPT Work and GitHub → local synchronization could not be completed or verified. The three repositories do not yet reference the same commit.
+External dependency: the execution environment denies outbound Git transport to `github.com:443`. The managed and local repositories are therefore classified as **Fetch Blocked**, not missing or incomplete. Authenticated browser inspection and snapshot download succeeded, but GitHub → GPT Work and GitHub → local Git synchronization could not be completed or verified. The three repositories do not yet reference the same Git commit.
+
+## Mandatory reading order
+
+Before implementation or architectural changes, read these committed authorities in order:
+
+1. `docs/milestone-one-constitutional-specification-v0.1.md`
+2. `docs/architecture/00-system-knowledge-graph.md`
+3. `docs/ARCHITECTURE.md`
+4. `docs/DIPLOMAT_ENVOY_ARCHITECTURE.md`
+5. `docs/PIPELINE_CONTRACT.md`
+6. `shared/contracts/runner-spec.yaml`
+7. `shared/contracts/pipeline-statuses.yaml`
+8. The remaining schemas and fixtures under `shared/contracts/` and `shared/fixtures/`
+9. `docs/contracts/scout-disk-builder-v2-refactor-contract.md` when working on Disk Builder or compiler behavior
+10. `docs/project/conversation-recovery-manifest.md` and this reconciliation record for provenance and recovery limits
+
+If these sources conflict, the constitutional specification and the newest approved GitHub commit govern. ClickUp, conversations, uploads, snapshots, and offline commits cannot silently replace committed GitHub canon.
+
+## Authoritative work queue
+
+This section is the single repository work queue. Do not create a parallel control document unless an approved commit explicitly replaces this section.
+
+| Order | State | Governed work |
+|---|---|---|
+| 1 | Active | Reconcile the GPT Work offline history and F: backup against `origin/main` when Git transport returns; preserve both sides and avoid hard reset, deletion, or force push. |
+| 2 | Next | Add deterministic schema validators and canonical positive/negative fixtures for the frozen Milestone One contracts. |
+| 3 | Next | Add cross-stage contract tests for Runner → APRA → Zeta → SCOUT-STAGE → Verification → Promotion DataFrame → Diplomat/MARA → Liaison. |
+| 4 | Blocked by evidence | Recover `ChatGPT-DIPLOMAT ! SCOUT Architecture.md` only from a readable source; until then it remains non-canonical and unavailable. |
+| 5 | Planning correction | Align the four conflicting ClickUp records to GPX-EDL and the committed APRA/Zeta/SCOUT-STAGE ordering. |
+
+Duplicate-prevention rule: update this queue and the existing architecture/contracts in place. Do not create replacement constitutions, alternate pipeline orders, or duplicate work queues merely because a lower-authority source uses different language.
 
 ## Divergence and missing-artifact report
 
@@ -171,4 +208,4 @@ The constitutional specification is frozen at v0.2. Schemas, deterministic valid
 
 ## Next governed action
 
-Complete GitHub-to-local synchronization and correct the conflicting ClickUp references. No implementation or architectural redesign may begin until the managed project and local repository both resolve to GitHub `main` and the preserved nested snapshot is reconciled without data loss.
+When Git transport becomes available, fetch `origin`, compare the canonical and offline histories, preserve both sides, and reconcile without hard reset or force push. While transport is unavailable, governed implementation may continue as clearly marked `LOCAL — PENDING PUSH` commits based on the recorded GitHub snapshot; no architectural redesign is authorized. The next implementation task is deterministic validators plus positive and negative fixtures for the frozen contracts.
